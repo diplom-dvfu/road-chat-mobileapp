@@ -1,0 +1,2 @@
+rootProject.name = "RoadChat"
+include ':app'
