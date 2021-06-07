@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
@@ -16,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.roadchat.R
 import com.example.roadchat.databinding.ActivityLoginBinding
 import com.example.roadchat.ui.main_chat.MainChatActivity
+import com.example.roadchat.ui.registration.RegistrationActivity
 
 
 class LoginActivity : AppCompatActivity() {
@@ -29,10 +29,11 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val username = binding.username
-        val password = binding.password
-        val login = binding.login
-        val loading = binding.loading
+        val username = binding.usernameEdittextLogin
+        val password = binding.passwordEdittextLogin
+        val login = binding.loginButtonLogin
+        val register = binding.registerTextviewLogin
+
 
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
             .get(LoginViewModel::class.java)
@@ -54,7 +55,6 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.loginResult.observe(this@LoginActivity, Observer {
             val loginResult = it ?: return@Observer
 
-            loading.visibility = View.GONE
             if (loginResult.error != null) {
                 showLoginFailed(loginResult.error)
             }
@@ -95,9 +95,12 @@ class LoginActivity : AppCompatActivity() {
             }
 
             login.setOnClickListener {
-                loading.visibility = View.VISIBLE
                 loginViewModel.login(username.text.toString(), password.text.toString())
             }
+        }
+
+        register.setOnClickListener {
+            startActivity(Intent(this, RegistrationActivity::class.java))
         }
     }
 
