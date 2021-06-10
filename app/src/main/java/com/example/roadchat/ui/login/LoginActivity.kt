@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.StringRes
@@ -99,6 +101,18 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        binding.usernameEdittextLogin.setOnFocusChangeListener { view, hasFocus ->
+            if (!hasFocus) {
+                binding.root.hideKeyboard()
+            }
+        }
+
+        binding.passwordEdittextLogin.setOnFocusChangeListener { view, hasFocus ->
+            if (!hasFocus) {
+                binding.root.hideKeyboard()
+            }
+        }
+
         register.setOnClickListener {
             startActivity(Intent(this, RegistrationActivity::class.java))
         }
@@ -117,7 +131,14 @@ class LoginActivity : AppCompatActivity() {
     private fun showLoginFailed(@StringRes errorString: Int) {
         Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
     }
+
+    fun View.hideKeyboard() {
+        val inputMethodManager =
+            context!!.getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+        inputMethodManager?.hideSoftInputFromWindow(this.windowToken, 0)
+    }
 }
+
 
 /**
  * Extension function to simplify setting an afterTextChanged action to EditText components.
