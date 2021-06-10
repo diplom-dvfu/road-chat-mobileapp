@@ -8,4 +8,21 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <style name="CustomCheckBox">
+        <item name="android:theme">@style/CheckBoxAppTheme</item>
+    </style>
+
+    <style name="CheckBoxAppTheme">
+        <item name="android:colorAccent">
+            @android:color/holo_red_dark
+        </item>
+        <item name="android:colorControlNormal">
+            @android:color/holo_red_dark
+        </item>
+        <item name="android:colorControlHighlight">
+            @android:color/holo_red_dark
+        </item>
+    </style>
 </resources>
+

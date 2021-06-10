@@ -17,7 +17,7 @@
         android:layout_marginRight="32dp"
         android:background="@drawable/rounded_edittext_register_login"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Логин"
         android:inputType="textPersonName"
         android:paddingLeft="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,16 +34,16 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Already have an account?"
+        android:text="Уже есть аккаунт?"
         android:textColor="@android:color/darker_gray"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/register_button_register"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/register_button_register"
         app:layout_constraintTop_toBottomOf="@+id/register_button_register"
-        app:layout_constraintVertical_bias="0.118" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/password_edittext_register"
@@ -52,7 +52,7 @@
         android:layout_marginTop="28dp"
         android:background="@drawable/rounded_edittext_register_login"
         android:ems="10"
-        android:hint="Password"
+        android:hint="Пароль"
         android:inputType="textPassword"
         android:paddingLeft="16dp"
         app:layout_constraintEnd_toEndOf="@+id/username_edittext_register"
@@ -67,7 +67,7 @@
         android:layout_marginTop="4dp"
         android:background="@drawable/rounded_edittext_register_login"
         android:ems="10"
-        android:hint="Confirm password"
+        android:hint="Повторите пароль"
         android:inputType="textPassword"
         android:paddingLeft="16dp"
         app:layout_constraintEnd_toEndOf="@+id/password_edittext_register"
@@ -79,15 +79,48 @@
         android:id="@+id/register_button_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="164dp"
         android:background="@drawable/rounded_button"
-        android:text="Register"
+        android:text="Зарегистрироваться"
         android:textColor="@android:color/white"
-        android:textStyle="bold"
+        android:textStyle=""
         app:layout_constraintEnd_toEndOf="@+id/password_confirm_edittext_register"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/password_confirm_edittext_register"
         app:layout_constraintTop_toBottomOf="@+id/password_confirm_edittext_register" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="143dp"
+        android:layout_height="62dp"
+        android:buttonTint="@android:color/holo_red_dark"
+        android:text="Водитель?"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/register_button_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_confirm_edittext_register"
+        app:layout_constraintVertical_bias="0.117" />
+
+    <EditText
+        android:id="@+id/plate_edittext_register"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_edittext_register_login"
+        android:ems="10"
+        android:hint="У500УУ125"
+        android:inputType="text"
+        android:paddingLeft="16dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/register_button_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
