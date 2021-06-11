@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="username_chat_preview">
+        <!--        <item name="android:layout_margin">80dp</item>-->
+        <item name="android:paddingLeft">8dp</item>
+        <!--        <item name="android:background">@android:color/holo_orange_light</item>-->
+        <item name="android:textAppearance">@android:style/TextAppearance.Large</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="last_message_chat_preview">
+        <!--        <item name="android:layout_margin">80dp</item>-->
+        <item name="android:paddingLeft">8dp</item>
+        <!--        <item name="android:background">@android:color/holo_orange_light</item>-->
+        <item name="android:textAppearance">@android:style/TextAppearance.Large</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <!--    <style name="colorSecon"-->
+</resources>
