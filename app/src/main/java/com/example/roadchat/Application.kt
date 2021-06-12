@@ -3,6 +3,7 @@ package com.example.roadchat
 import android.app.Application
 import com.example.roadchat.data.model.db.ChatsDatabase
 import com.example.roadchat.data.model.db.ChatsRepository
+import com.example.roadchat.data.model.db.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
@@ -14,4 +15,5 @@ class RoadChatApplication : Application() {
     // rather than when the application starts
     val chatsDatabase by lazy { ChatsDatabase.getDatabase(this, applicationScope) }
     val chatsRepository by lazy { ChatsRepository(chatsDatabase.ChatDao()) }
+    val userRepository by lazy { UserRepository(chatsDatabase.UserDao()) }
 }

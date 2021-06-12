@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
@@ -28,6 +29,7 @@ class ChatsPreviewAdapter(private val context: Context) :
     }
 
     class ChatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val avatarItemView: ImageView = itemView.findViewById(R.id.chat_avatar)
         private val usernameItemView: TextView = itemView.findViewById(R.id.username_textview)
         private val lastMessageTextItemView: TextView =
             itemView.findViewById(R.id.last_message_textview)
@@ -38,6 +40,13 @@ class ChatsPreviewAdapter(private val context: Context) :
             usernameItemView.text = username
             lastMessageTextItemView.text = lastMessageText
             lastMessageDateItemView.text = lastMessageDateText
+            if (username != null) {
+                if (username.matches(Regex("^[АВЕКМНОРСТУХ]\\d{3}(?<!000)[АВЕКМНОРСТУХ]{2}\\d{2,3}\$"))) {
+                    avatarItemView.setImageResource(R.drawable.ic_car)
+                } else {
+                    avatarItemView.setImageResource(R.drawable.ic_account)
+                }
+            }
         }
 
         companion object {
