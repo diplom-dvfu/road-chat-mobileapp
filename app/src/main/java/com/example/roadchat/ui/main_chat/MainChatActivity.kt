@@ -11,7 +11,7 @@ import com.example.roadchat.R
 import com.example.roadchat.RoadChatApplication
 import com.example.roadchat.data.model.ChatsPreviewViewModel
 import com.example.roadchat.data.model.ChatsPreviewViewModelFactory
-import com.example.roadchat.data.model.db.ChatsAdapter
+import com.example.roadchat.data.model.db.ChatsPreviewAdapter
 import com.example.roadchat.databinding.ActivityMainChatBinding
 
 
@@ -25,7 +25,7 @@ class MainChatActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main_chat)
         val binding = ActivityMainChatBinding.inflate(layoutInflater)
         val recyclerView = findViewById<RecyclerView>(R.id.chats_preview_recycleview)
-        val adapter = ChatsAdapter()
+        val adapter = ChatsPreviewAdapter(this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.addItemDecoration(
@@ -34,10 +34,15 @@ class MainChatActivity : AppCompatActivity() {
                 DividerItemDecoration.VERTICAL
             )
         )
+
         chatsPreviewViewModel.allChats.observe(owner = this) { words ->
             // Update the cached copy of the words in the adapter.
-            words.let { adapter.submitList(it) }
+            words.let {
+                adapter.submitList(it)
+            }
         }
+
     }
+
 
 }

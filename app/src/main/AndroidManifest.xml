@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RoadChat">
-        <activity android:name=".ui.main_chat.MainChatActivity" />
+        <activity
+            android:name=".ui.main_chat.MainChatActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:windowSoftInputMode="adjustPan"

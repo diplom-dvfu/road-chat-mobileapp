@@ -1,16 +1,19 @@
 package com.example.roadchat.data.model.db
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roadchat.R
-import com.example.roadchat.data.model.db.ChatsAdapter.ChatViewHolder
+import com.example.roadchat.data.model.db.ChatsPreviewAdapter.ChatViewHolder
 
-class ChatsAdapter : ListAdapter<Chat, ChatViewHolder>(WORDS_COMPARATOR) {
+class ChatsPreviewAdapter(private val context: Context) :
+    ListAdapter<Chat, ChatViewHolder>(WORDS_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {
         return ChatViewHolder.create(parent)
@@ -19,6 +22,9 @@ class ChatsAdapter : ListAdapter<Chat, ChatViewHolder>(WORDS_COMPARATOR) {
     override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
         val current = getItem(position)
         holder.bind(current.username, current.lastMessage, current.lastMessageDate)
+        holder.itemView.setOnClickListener {
+            Toast.makeText(this.context, current.username, Toast.LENGTH_SHORT).show()
+        }
     }
 
     class ChatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

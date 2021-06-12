@@ -72,12 +72,10 @@ abstract class ChatsDatabase : RoomDatabase() {
             // Not needed if you only populate on creation.
             chatDao.deleteAll()
 
-            chatDao.insert(Chat(0, "vixorem", "Be cool!", "31.01"))
-            chatDao.insert(Chat(1, "У502НК", "Хорошо покатались", "1.01"))
-//            chatDao.insert(Chat(0))
-//            chatDao.insert(Chat(1))
-//            chatDao.insert(Chat("vixorem"))
-//            chatDao.insert(Chat("У502НК"))
+            chatDao.insert(Chat(0, "vixorem", "Перепаркуйте автомобиль", "31.05"))
+            chatDao.insert(Chat(1, "У502НК125", "Хорошо покатались", "12.03"))
+            chatDao.insert(Chat(2, "М651ЕЕ125", "Спасибо большое!", "5.02"))
+
         }
     }
 }
