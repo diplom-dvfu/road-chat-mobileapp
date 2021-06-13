@@ -7,6 +7,8 @@ class UserRepository(private val userDao: UserDao) {
 
     val user: Flow<User> = userDao.getUserInfo()
 
+    val userAccounts: Flow<List<User>> = userDao.getUserAccounts()
+
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insert(chat: User) {

@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
  * This is the backend. The database. This used to be done by the OpenHelper.
  * The fact that this has very few comments emphasizes its coolness.
  */
-@Database(entities = [Chat::class, User::class], version = 5)
+@Database(entities = [Chat::class, User::class], version = 7)
 abstract class ChatsDatabase : RoomDatabase() {
 
     abstract fun ChatDao(): ChatDao
@@ -60,6 +60,7 @@ abstract class ChatsDatabase : RoomDatabase() {
                     scope.launch(Dispatchers.IO) {
                         populateDatabase(database.ChatDao())
                         database.UserDao().insert(User(0, "ikhacha"))
+                        database.UserDao().insert(User(1, "М111ЕХ125"))
                     }
                 }
             }

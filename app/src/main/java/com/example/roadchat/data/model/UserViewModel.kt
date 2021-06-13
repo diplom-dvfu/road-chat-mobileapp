@@ -2,6 +2,7 @@ package com.example.roadchat.data.model
 
 import androidx.lifecycle.*
 import com.example.roadchat.data.model.db.User
+//import com.example.roadchat.data.model.db.UserAccounts
 import com.example.roadchat.data.model.db.UserRepository
 import kotlinx.coroutines.launch
 
@@ -9,6 +10,8 @@ import kotlinx.coroutines.launch
 class UserViewModel(private val repository: UserRepository) : ViewModel() {
 
     val user: LiveData<User> = repository.user.asLiveData()
+
+    val userAccounts: LiveData<List<User>> = repository.userAccounts.asLiveData()
 
     fun insert(word: User) = viewModelScope.launch {
         repository.insert(word)
