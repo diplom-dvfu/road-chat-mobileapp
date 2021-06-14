@@ -8,6 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.roadchat.data.db.dao.ChatDao
 import com.example.roadchat.data.db.dao.UserDao
 import com.example.roadchat.data.db.entity.Chat
+import com.example.roadchat.data.db.entity.Message
 import com.example.roadchat.data.db.entity.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +18,7 @@ import kotlinx.coroutines.launch
  * This is the backend. The database. This used to be done by the OpenHelper.
  * The fact that this has very few comments emphasizes its coolness.
  */
-@Database(entities = [Chat::class, User::class], version = 7)
+@Database(entities = [Chat::class, User::class, Message::class], version = 9)
 abstract class ChatsDatabase : RoomDatabase() {
 
     abstract fun ChatDao(): ChatDao
@@ -82,7 +83,16 @@ abstract class ChatsDatabase : RoomDatabase() {
             chatDao.insert(Chat(0, "vixorem", "Перепаркуйте автомобиль", "31.05"))
             chatDao.insert(Chat(1, "У502НК125", "Хорошо покатались", "12.03"))
             chatDao.insert(Chat(2, "М651ЕЕ125", "Спасибо большое!", "5.02"))
+            for (i in 0..30) {
+                val se = arrayOf("vixorem", "ikhacha").random()
+                chatDao.insertMessage(
+                    Message(
+                        0, "vixorem",
+                        "Тестовое сообщение №$i", "ikhacha", se, 0
+                    )
+                )
 
+            }
         }
     }
 }

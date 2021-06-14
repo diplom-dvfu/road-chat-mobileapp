@@ -7,13 +7,21 @@ import com.example.roadchat.data.db.repository.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
+
 class RoadChatApplication : Application() {
     // No need to cancel this scope as it'll be torn down with the process
     val applicationScope = CoroutineScope(SupervisorJob())
 
-    // Using by lazy so the database and the repository are only created when they're needed
-    // rather than when the application starts
-    val chatsDatabase by lazy { ChatsDatabase.getDatabase(this, applicationScope) }
-    val chatsRepository by lazy { ChatsRepository(chatsDatabase.ChatDao()) }
-    val userRepository by lazy { UserRepository(chatsDatabase.UserDao()) }
+
+    private lateinit var chatsDatabase: ChatsDatabase
+    lateinit var chatsRepository: ChatsRepository
+    lateinit var userRepository: UserRepository
+    override fun onCreate() {
+        super.onCreate()
+        chatsDatabase = ChatsDatabase.getDatabase(this, applicationScope)
+        chatsRepository = ChatsRepository(chatsDatabase.ChatDao())
+        userRepository = UserRepository(chatsDatabase.UserDao())
+    }
+
+
 }

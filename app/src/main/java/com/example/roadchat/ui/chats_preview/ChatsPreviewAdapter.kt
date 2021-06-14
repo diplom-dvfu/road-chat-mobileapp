@@ -1,17 +1,18 @@
 package com.example.roadchat.ui.chats_preview
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roadchat.R
 import com.example.roadchat.data.db.entity.Chat
+import com.example.roadchat.ui.chat.ChatActivity
 import com.example.roadchat.ui.chats_preview.ChatsPreviewAdapter.ChatViewHolder
 import com.example.roadchat.ui.setImageColor
 
@@ -26,7 +27,12 @@ class ChatsPreviewAdapter(private val context: Context) :
         val current = getItem(position)
         holder.bind(current.username, current.lastMessage, current.lastMessageDate, position)
         holder.itemView.setOnClickListener {
-            Toast.makeText(this.context, current.username, Toast.LENGTH_SHORT).show()
+            val chatIntent = Intent(this.context, ChatActivity::class.java)
+            chatIntent.putExtra("accountName", current.username)
+            chatIntent.putExtra("interlocutorName", "ikhacha")
+            chatIntent.putExtra("pos", position)
+            this.context.startActivity(chatIntent)
+//            Toast.makeText(this.context, current.username, Toast.LENGTH_SHORT).show()
         }
     }
 
