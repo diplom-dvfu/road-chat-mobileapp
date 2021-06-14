@@ -11,8 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoadChat">
         <activity
+            android:name=".ui.edit_account.EditAccountActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name=".ui.all_accounts.AllAccountsActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ui.chats_preview.ChatsPreviewActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

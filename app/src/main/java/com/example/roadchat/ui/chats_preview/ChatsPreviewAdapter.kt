@@ -13,23 +13,25 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.roadchat.R
 import com.example.roadchat.data.db.entity.Chat
 import com.example.roadchat.ui.chats_preview.ChatsPreviewAdapter.ChatViewHolder
+import com.example.roadchat.ui.setImageColor
 
 class ChatsPreviewAdapter(private val context: Context) :
     ListAdapter<Chat, ChatViewHolder>(WORDS_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {
-        return ChatViewHolder.create(parent)
+        return ChatViewHolder.create(parent, context)
     }
 
     override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
         val current = getItem(position)
-        holder.bind(current.username, current.lastMessage, current.lastMessageDate)
+        holder.bind(current.username, current.lastMessage, current.lastMessageDate, position)
         holder.itemView.setOnClickListener {
             Toast.makeText(this.context, current.username, Toast.LENGTH_SHORT).show()
         }
     }
 
-    class ChatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ChatViewHolder(itemView: View, private val context: Context) :
+        RecyclerView.ViewHolder(itemView) {
         private val avatarItemView: ImageView = itemView.findViewById(R.id.chat_avatar)
         private val usernameItemView: TextView = itemView.findViewById(R.id.username_textview)
         private val lastMessageTextItemView: TextView =
@@ -37,7 +39,12 @@ class ChatsPreviewAdapter(private val context: Context) :
         private val lastMessageDateItemView: TextView =
             itemView.findViewById(R.id.date_last_message_textview)
 
-        fun bind(username: String?, lastMessageText: String?, lastMessageDateText: String?) {
+        fun bind(
+            username: String?,
+            lastMessageText: String?,
+            lastMessageDateText: String?,
+            position: Int
+        ) {
             usernameItemView.text = username
             lastMessageTextItemView.text = lastMessageText
             lastMessageDateItemView.text = lastMessageDateText
@@ -48,13 +55,14 @@ class ChatsPreviewAdapter(private val context: Context) :
                     avatarItemView.setImageResource(R.drawable.ic_account)
                 }
             }
+            setImageColor(this.context, avatarItemView, position)
         }
 
         companion object {
-            fun create(parent: ViewGroup): ChatViewHolder {
+            fun create(parent: ViewGroup, context: Context): ChatViewHolder {
                 val view: View = LayoutInflater.from(parent.context)
                     .inflate(R.layout.chat_preview_item, parent, false)
-                return ChatViewHolder(view)
+                return ChatViewHolder(view, context)
             }
         }
     }

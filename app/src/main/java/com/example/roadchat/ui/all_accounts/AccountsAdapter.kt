@@ -12,7 +12,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roadchat.R
 import com.example.roadchat.data.db.entity.User
-import com.example.roadchat.ui.chats_preview.ChatsPreviewActivity
+import com.example.roadchat.ui.edit_account.EditAccountActivity
+import com.example.roadchat.ui.setImageColor
 
 class AccountsAdapter(private val context: Context) :
     ListAdapter<User, AccountsAdapter.AccountViewHolder>(WORDS_COMPARATOR) {
@@ -23,7 +24,7 @@ class AccountsAdapter(private val context: Context) :
 
     override fun onBindViewHolder(holder: AccountViewHolder, position: Int) {
         val current = getItem(position)
-        holder.bind(current.username)
+        holder.bind(current.username, position)
     }
 
     class AccountViewHolder(itemView: View, private val context: Context) :
@@ -33,7 +34,7 @@ class AccountsAdapter(private val context: Context) :
             itemView.findViewById(R.id.account_name_textview_edit)
         private val changeItemView: ImageView = itemView.findViewById(R.id.account_edit)
 
-        fun bind(username: String?) {
+        fun bind(username: String?, position: Int) {
             usernameItemView.text = username
             if (username != null) {
                 if (username.matches(Regex("^[АВЕКМНОРСТУХ]\\d{3}(?<!000)[АВЕКМНОРСТУХ]{2}\\d{2,3}\$"))) {
@@ -42,8 +43,12 @@ class AccountsAdapter(private val context: Context) :
                     avatarItemView.setImageResource(R.drawable.ic_account)
                 }
             }
+            setImageColor(context, avatarItemView, position)
             changeItemView.setOnClickListener {
-                this.context.startActivity(Intent(this.context, ChatsPreviewActivity::class.java))
+                val editAccountIntent = Intent(this.context, EditAccountActivity::class.java)
+                editAccountIntent.putExtra("accountName", username)
+                editAccountIntent.putExtra("pos", position)
+                this.context.startActivity(editAccountIntent)
             }
         }
 

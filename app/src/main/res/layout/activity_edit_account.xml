@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".ui.edit_account.EditAccountActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/profile_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/close_profile_imageview"
+            style="@style/account_username"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:layout_marginVertical="12dp"
+            android:layout_marginRight="16dp"
+            android:paddingLeft="0dp"
+            android:src="@drawable/ic_close"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/profile_textview"
+            style="@style/account_username"
+            android:layout_width="207dp"
+            android:layout_height="23dp"
+            android:layout_marginVertical="12dp"
+            android:text="Профиль"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/account_avatar_editaccount"
+        android:layout_width="153dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_toolbar"
+        app:srcCompat="@drawable/ic_account" />
+
+    <TextView
+        android:id="@+id/account_username_editaccount"
+        style="@style/account_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AccountName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_avatar_editaccount" />
+
+    <EditText
+        android:id="@+id/password_edittext_editaccount"
+        android:layout_width="319dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/rounded_edittext_register_login"
+        android:ems="10"
+        android:hint="Пароль"
+
+        android:inputType="textPassword"
+        android:paddingLeft="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_username_editaccount" />
+
+    <EditText
+        android:id="@+id/new_password_edittext_editaccount"
+        android:layout_width="319dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_edittext_register_login"
+        android:ems="10"
+        android:hint="Новый пароль"
+        android:inputType="textPassword"
+        android:paddingLeft="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_edittext_editaccount" />
+
+    <EditText
+        android:id="@+id/new_password_confirm_edittext_editaccount"
+        android:layout_width="319dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_edittext_register_login"
+        android:ems="10"
+        android:hint="Повторите пароль"
+        android:inputType="textPassword"
+        android:paddingLeft="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/new_password_edittext_editaccount"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/new_password_edittext_editaccount"
+        app:layout_constraintTop_toBottomOf="@+id/new_password_edittext_editaccount" />
+
+    <Button
+        android:id="@+id/change_button_editaccount"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/rounded_button"
+        android:text="Изменить"
+        android:textColor="@android:color/white"
+        app:backgroundTint="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="@+id/new_password_confirm_edittext_editaccount"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/new_password_confirm_edittext_editaccount"
+        app:layout_constraintTop_toBottomOf="@+id/new_password_confirm_edittext_editaccount" />
+
+    <Button
+        android:id="@+id/account_action_button_editaccount"
+        android:layout_width="319dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_button"
+        android:text="Выйти"
+        android:textColor="@android:color/white"
+        app:backgroundTint="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_button_editaccount"
+        app:layout_constraintVertical_bias="0.205" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

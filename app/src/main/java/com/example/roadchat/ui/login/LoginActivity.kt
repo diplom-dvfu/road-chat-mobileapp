@@ -65,7 +65,6 @@ class LoginActivity : AppCompatActivity() {
             }
             setResult(Activity.RESULT_OK)
             startActivity(Intent(this, ChatsPreviewActivity::class.java))
-            //Complete and destroy login activity once successful
             finish()
 
         })

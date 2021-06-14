@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.roadchat.databinding.ActivityRegistrationBinding
 import com.example.roadchat.ui.login.LoginActivity
@@ -52,6 +53,11 @@ class RegistrationActivity : AppCompatActivity() {
     fun View.hideKeyboard() {
         val inputMethodManager =
             context!!.getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as? InputMethodManager
-        inputMethodManager?.hideSoftInputFromWindow(this.windowToken, 0)
+        Toast.makeText(
+            this.context,
+            inputMethodManager?.hideSoftInputFromWindow(this.windowToken, 0).toString(),
+            Toast.LENGTH_LONG
+        ).show()
+
     }
 }

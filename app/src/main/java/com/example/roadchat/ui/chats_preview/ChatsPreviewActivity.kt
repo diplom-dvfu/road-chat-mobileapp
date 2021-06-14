@@ -17,6 +17,7 @@ import com.example.roadchat.databinding.ActivityMainChatBinding
 import com.example.roadchat.ui.all_accounts.AllAccountsActivity
 import com.example.roadchat.ui.all_accounts.UserViewModel
 import com.example.roadchat.ui.all_accounts.UserViewModelFactory
+import com.example.roadchat.ui.setImageColor
 
 
 class ChatsPreviewActivity : AppCompatActivity() {
@@ -42,6 +43,7 @@ class ChatsPreviewActivity : AppCompatActivity() {
             } else {
                 findViewById<ImageView>(R.id.account_avatar).setImageResource(R.drawable.ic_account)
             }
+            setImageColor(this, findViewById<ImageView>(R.id.account_avatar), user.userId)
         })
     }
 
