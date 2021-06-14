@@ -1,4 +1,4 @@
-package com.example.roadchat.ui
+package com.example.roadchat.ui.all_accounts
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,10 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roadchat.R
 import com.example.roadchat.RoadChatApplication
-import com.example.roadchat.data.model.UserViewModel
-import com.example.roadchat.data.model.UserViewModelFactory
-import com.example.roadchat.data.model.db.AccountsAdapter
-import com.example.roadchat.ui.main_chat.MainChatActivity
+import com.example.roadchat.ui.chats_preview.ChatsPreviewActivity
 
 class AllAccountsActivity : AppCompatActivity() {
     private val userViewModel: UserViewModel by viewModels {
@@ -26,7 +23,7 @@ class AllAccountsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_all_accounts)
 
         findViewById<ImageView>(R.id.close_imageview).setOnClickListener {
-            startActivity(Intent(this, MainChatActivity::class.java))
+            startActivity(Intent(this, ChatsPreviewActivity::class.java))
         }
 
         initAccountsView()

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.AllAccountsActivity">
+    tools:context=".ui.all_accounts.AllAccountsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/all_accounts_toolbar"
@@ -51,6 +51,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/all_accounts_toolbar"
-        tools:listitem="@layout/chat_preview_item" />
+        tools:listitem="@layout/account_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

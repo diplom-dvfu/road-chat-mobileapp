@@ -11,10 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoadChat">
         <activity
-            android:name=".ui.AllAccountsActivity"
+            android:name=".ui.all_accounts.AllAccountsActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity
-            android:name=".ui.main_chat.MainChatActivity"
+            android:name=".ui.chats_preview.ChatsPreviewActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ui.login.LoginActivity"

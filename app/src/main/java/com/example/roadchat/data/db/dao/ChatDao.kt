@@ -1,9 +1,10 @@
-package com.example.roadchat.data.model.db
+package com.example.roadchat.data.db.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.roadchat.data.db.entity.Chat
 import kotlinx.coroutines.flow.Flow
 
 @Dao

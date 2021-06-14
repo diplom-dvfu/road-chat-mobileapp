@@ -1,9 +1,9 @@
-package com.example.roadchat.data.model
+package com.example.roadchat.ui.all_accounts
 
 import androidx.lifecycle.*
-import com.example.roadchat.data.model.db.User
-//import com.example.roadchat.data.model.db.UserAccounts
-import com.example.roadchat.data.model.db.UserRepository
+import com.example.roadchat.data.db.entity.User
+//import com.example.roadchat.data.db.UserAccounts
+import com.example.roadchat.data.db.repository.UserRepository
 import kotlinx.coroutines.launch
 
 

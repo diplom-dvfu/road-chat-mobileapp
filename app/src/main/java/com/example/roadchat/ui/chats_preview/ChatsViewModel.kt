@@ -1,8 +1,8 @@
-package com.example.roadchat.data.model
+package com.example.roadchat.ui.chats_preview
 
 import androidx.lifecycle.*
-import com.example.roadchat.data.model.db.Chat
-import com.example.roadchat.data.model.db.ChatsRepository
+import com.example.roadchat.data.db.entity.Chat
+import com.example.roadchat.data.db.repository.ChatsRepository
 import kotlinx.coroutines.launch
 
 

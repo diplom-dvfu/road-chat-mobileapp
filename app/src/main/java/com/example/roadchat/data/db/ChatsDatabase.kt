@@ -1,10 +1,14 @@
-package com.example.roadchat.data.model.db
+package com.example.roadchat.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.roadchat.data.db.dao.ChatDao
+import com.example.roadchat.data.db.dao.UserDao
+import com.example.roadchat.data.db.entity.Chat
+import com.example.roadchat.data.db.entity.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

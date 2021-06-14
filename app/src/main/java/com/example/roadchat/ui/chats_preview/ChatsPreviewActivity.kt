@@ -1,4 +1,4 @@
-package com.example.roadchat.ui.main_chat
+package com.example.roadchat.ui.chats_preview
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,16 +13,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roadchat.R
 import com.example.roadchat.RoadChatApplication
-import com.example.roadchat.data.model.ChatsPreviewViewModel
-import com.example.roadchat.data.model.ChatsPreviewViewModelFactory
-import com.example.roadchat.data.model.UserViewModel
-import com.example.roadchat.data.model.UserViewModelFactory
-import com.example.roadchat.data.model.db.ChatsPreviewAdapter
 import com.example.roadchat.databinding.ActivityMainChatBinding
-import com.example.roadchat.ui.AllAccountsActivity
+import com.example.roadchat.ui.all_accounts.AllAccountsActivity
+import com.example.roadchat.ui.all_accounts.UserViewModel
+import com.example.roadchat.ui.all_accounts.UserViewModelFactory
 
 
-class MainChatActivity : AppCompatActivity() {
+class ChatsPreviewActivity : AppCompatActivity() {
     private val chatsPreviewViewModel: ChatsPreviewViewModel by viewModels {
         ChatsPreviewViewModelFactory((application as RoadChatApplication).chatsRepository)
     }

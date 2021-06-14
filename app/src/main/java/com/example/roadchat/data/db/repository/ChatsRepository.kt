@@ -1,6 +1,8 @@
-package com.example.roadchat.data.model.db
+package com.example.roadchat.data.db.repository
 
 import androidx.annotation.WorkerThread
+import com.example.roadchat.data.db.dao.ChatDao
+import com.example.roadchat.data.db.entity.Chat
 import kotlinx.coroutines.flow.Flow
 
 

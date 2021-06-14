@@ -1,4 +1,4 @@
-package com.example.roadchat.data.model.db
+package com.example.roadchat.ui.chats_preview
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roadchat.R
-import com.example.roadchat.data.model.db.ChatsPreviewAdapter.ChatViewHolder
+import com.example.roadchat.data.db.entity.Chat
+import com.example.roadchat.ui.chats_preview.ChatsPreviewAdapter.ChatViewHolder
 
 class ChatsPreviewAdapter(private val context: Context) :
     ListAdapter<Chat, ChatViewHolder>(WORDS_COMPARATOR) {

@@ -1,4 +1,4 @@
-package com.example.roadchat.data.model.db
+package com.example.roadchat.data.db.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

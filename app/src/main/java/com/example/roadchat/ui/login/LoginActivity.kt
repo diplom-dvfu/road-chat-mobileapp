@@ -16,7 +16,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.roadchat.R
 import com.example.roadchat.databinding.ActivityLoginBinding
-import com.example.roadchat.ui.main_chat.MainChatActivity
+import com.example.roadchat.ui.chats_preview.ChatsPreviewActivity
 import com.example.roadchat.ui.registration.RegistrationActivity
 
 
@@ -64,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
                 updateUiWithUser(loginResult.success)
             }
             setResult(Activity.RESULT_OK)
-            startActivity(Intent(this, MainChatActivity::class.java))
+            startActivity(Intent(this, ChatsPreviewActivity::class.java))
             //Complete and destroy login activity once successful
             finish()
 

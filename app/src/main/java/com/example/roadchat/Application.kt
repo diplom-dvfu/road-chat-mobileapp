@@ -1,9 +1,9 @@
 package com.example.roadchat
 
 import android.app.Application
-import com.example.roadchat.data.model.db.ChatsDatabase
-import com.example.roadchat.data.model.db.ChatsRepository
-import com.example.roadchat.data.model.db.UserRepository
+import com.example.roadchat.data.db.ChatsDatabase
+import com.example.roadchat.data.db.repository.ChatsRepository
+import com.example.roadchat.data.db.repository.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
