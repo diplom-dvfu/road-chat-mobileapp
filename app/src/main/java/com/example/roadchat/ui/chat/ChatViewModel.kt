@@ -17,6 +17,10 @@ class ChatViewModel(
     fun insert(message: Message) = viewModelScope.launch {
 //        repository.insert(message)
     }
+
+//    fun sendMessage(message: Message) : {
+//
+//    }
 }
 
 class ChatViewModelFactory(

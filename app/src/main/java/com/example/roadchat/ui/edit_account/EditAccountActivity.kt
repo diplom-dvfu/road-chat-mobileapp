@@ -9,6 +9,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.roadchat.R
 import com.example.roadchat.databinding.ActivityEditAccountBinding
@@ -69,6 +70,9 @@ class EditAccountActivity : AppCompatActivity() {
     fun initButtons() {
         if (isPersonalAccount) {
             findViewById<TextView>(R.id.change_button_editaccount).text = "Изменить пароль"
+            findViewById<TextView>(R.id.change_button_editaccount).setOnClickListener {
+                Toast.makeText(this, "Нет соединения с сервером", Toast.LENGTH_LONG).show()
+            }
             findViewById<TextView>(R.id.account_action_button_editaccount).text =
                 "Выйти из аккаунта"
             findViewById<TextView>(R.id.account_action_button_editaccount).setOnClickListener {
@@ -82,6 +86,9 @@ class EditAccountActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.new_password_confirm_edittext_editaccount).visibility =
                 View.INVISIBLE
             findViewById<TextView>(R.id.account_action_button_editaccount).text = "Удалить машину"
+            findViewById<TextView>(R.id.account_action_button_editaccount).setOnClickListener {
+                Toast.makeText(this, "Нет соединения с сервером", Toast.LENGTH_LONG).show()
+            }
         }
     }
 

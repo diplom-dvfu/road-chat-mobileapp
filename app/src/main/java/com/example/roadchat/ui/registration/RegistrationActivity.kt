@@ -26,6 +26,10 @@ class RegistrationActivity : AppCompatActivity() {
             }
         }
 
+        binding.registerButtonRegister.setOnClickListener {
+            Toast.makeText(this, "Нет соединения с сервером", Toast.LENGTH_SHORT).show()
+        }
+
         binding.usernameEdittextRegister.setOnFocusChangeListener { view, hasFocus ->
             if (!hasFocus) {
                 binding.root.hideKeyboard()

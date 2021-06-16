@@ -60,12 +60,13 @@ class LoginActivity : AppCompatActivity() {
             if (loginResult.error != null) {
                 showLoginFailed(loginResult.error)
             }
+
             if (loginResult.success != null) {
-                updateUiWithUser(loginResult.success)
+                setResult(Activity.RESULT_OK)
+                startActivity(Intent(this, ChatsPreviewActivity::class.java))
+                finish()
             }
-            setResult(Activity.RESULT_OK)
-            startActivity(Intent(this, ChatsPreviewActivity::class.java))
-            finish()
+
 
         })
 
@@ -128,7 +129,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun showLoginFailed(@StringRes errorString: Int) {
-        Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, "Нет соединения с сервером", Toast.LENGTH_SHORT).show()
     }
 
     fun View.hideKeyboard() {

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -18,6 +19,7 @@ import com.example.roadchat.ui.all_accounts.AllAccountsActivity
 import com.example.roadchat.ui.all_accounts.UserViewModel
 import com.example.roadchat.ui.all_accounts.UserViewModelFactory
 import com.example.roadchat.ui.setImageColor
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class ChatsPreviewActivity : AppCompatActivity() {
@@ -72,6 +74,10 @@ class ChatsPreviewActivity : AppCompatActivity() {
             chatsPreview.let {
                 adapter.submitList(it)
             }
+        }
+
+        findViewById<FloatingActionButton>(R.id.add_new_chat).setOnClickListener {
+            Toast.makeText(this, "Нет соединения с сервером", Toast.LENGTH_LONG).show()
         }
     }
 
